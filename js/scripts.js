@@ -7,17 +7,10 @@ $(document).ready(function(){
     var noPunctuation = addWords.replace(/[!.,?]/g, "");
     //split the original string into array indices
     var initialSentence = noPunctuation.split(" ");
-    var greaterThanThree = []
-    //search for words that are three characters or longer
-    initialSentence.forEach(function(word) {
-      if (word.length >= 3) {
-        greaterThanThree.push(word);
-      }
-    });
+    //search for words that are three or more characters.
+    var greaterThanThree = initialSentence.filter(word => word.length >= 3);
     //reverse the array and then split it back into a string
     wordPlay = greaterThanThree.reverse().join(" ");
     $('#wordPlay').text(wordPlay);
-
-    console.log(initialSentence);
-  })
-})
+  });
+});
